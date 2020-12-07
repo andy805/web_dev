@@ -90,3 +90,39 @@ h1 {
   text-align: center;
   font-weight: 200;
 }
+
+/* testimonial section */
+#testimonial {
+  text-align: center;
+  background-color: #ef8172;
+  color: #fff;
+}
+
+.carousel-item {
+
+  padding: 7% 15%;
+}
+
+.testimonialH2 {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.testimonialImg {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+#press {
+  background-color: #ef8172;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.pressImg {
+  width: 15%;
+  margin: 20px 20px 50;
+}

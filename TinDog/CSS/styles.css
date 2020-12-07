@@ -59,3 +59,13 @@ h1 {
 .downloadButton {
   margin: 5% 3% 5% 0;
 }
+
+/* description section */
+
+/* icons */
+.descriptionIcon {
+  text-align: center;
+  width: 100%;
+  font-size: 5rem;
+  color: #ff4c68;
+}

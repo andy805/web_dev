@@ -183,3 +183,20 @@ h1 {
   text-align: center;
   padding-bottom: 30px
 }
+
+/* Call to Action  */
+
+#callToAction {
+  padding: 7% 15%;
+  background-color: #ef8172;
+  text-align: center;
+  color: white;
+}
+
+.callToActionH2 {
+  margin-bottom: 5%;
+  padding-bottom: 45px;
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-size: 3rem;
+}

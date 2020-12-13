@@ -187,16 +187,26 @@ h1 {
 /* Call to Action  */
 
 #callToAction {
-  padding: 7% 15%;
-  background-color: #ef8172;
+  padding: 5% 15%;
+  background-color: #ff4c68;
   text-align: center;
   color: white;
 }
 
 .callToActionH2 {
-  margin-bottom: 5%;
-  padding-bottom: 45px;
   font-family: "Montserrat";
-  font-weight: 900;
+  font-weight: 700;
   font-size: 3rem;
+}
+
+/* footer section */
+
+#footer {
+  text-align: center;
+  padding: 5%;
+  font-weight: lighter;
+}
+
+.footer-icon {
+    margin: 3% 1% 3% 1%;
 }

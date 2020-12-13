@@ -1,25 +1,35 @@
-#title {
+
+body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat";
+}
+
+/* section colors */
+
+.coloredSection {
   background-color: #ff4c68;
-  font-family: "Montserrat-900", sans-serif;
+}
+
+.whiteSection {
+  background-color: white;
+}
+
+/* Title section */
+
+#title {
   position: relative;
   z-index: 0;
 }
 
-body {
-  font-family: "Montserrat";
-}
-
-h1 {
-  font-family: "Montserrat-Black";
-  font-size: 6rem;
-  line-height: 1.5;
-}
-
-#titleText {
-  font-family: "Montserrat";
+.titleText {
   font-weight: 900;
   font-size: 3rem;
   color: white;
+  text-align: left;
 }
 
 .iphoneDogImg {
@@ -37,22 +47,17 @@ h1 {
     transform: rotate(0);
 
   }
-
-  #titleText {
-    text-align: center;
-  }
-
   .imageCenter {
     text-align: center;
   }
 
-  .titleCenter {
+  .titleText {
     text-align: center;
   }
 }
 
 .container-fluid {
-  padding: 3% 15% 7%;
+  padding: 7% 10%;
 }
 
 /* Navigation bar */
@@ -66,7 +71,6 @@ h1 {
   font-family: "Ubuntu";
   font-size: 2.5rem;
   font-weight: bold;
-  padd
 
 }
 
@@ -76,7 +80,6 @@ h1 {
 
 .nav-link {
   font-size: 1.2rem;
-  font-family: "Montserrat";
   font-weight: lighter;
 }
 
@@ -87,21 +90,14 @@ h1 {
 
 /* description section */
 #description {
-  background-color: white;
-  padding: 5% 15%;
   position: relative;
   z-index: 2;
 
 }
 
-.descriptionBox {
-
-}
 
 /* icons */
 .descriptionIcon {
-  text-align: center;
-  width: 100%;
   font-size: 5rem;
   color: #ef8172;
   padding-bottom: 1rem;
@@ -112,31 +108,25 @@ h1 {
 }
 
 .descriptionH3 {
-  text-align: center;
   font-weight: bold;
-
 }
 
 .descriptionText {
   padding: 0 5% 0 5%;
-  text-align: center;
   font-weight: 200;
 }
 
 /* testimonial section */
 #testimonial {
-  text-align: center;
   background-color: #ef8172;
   color: #fff;
 }
 
 .carousel-item {
-
   padding: 7% 15%;
 }
 
 .testimonialH2 {
-  font-family: "Montserrat";
   font-weight: bold;
   font-size: 3rem;
   line-height: 1.5;
@@ -149,9 +139,8 @@ h1 {
 }
 
 #press {
-  background-color: #ef8172;
-  text-align: center;
   padding-bottom: 3%;
+  background-color: #ef8172;
 }
 
 .pressImg {
@@ -173,14 +162,11 @@ h1 {
 }
 
 .pricesH2 {
-  font-family: "Montserrat";
-  font-weight: 900;
-  text-align: center;
-  text-size: 3rem;
+  font-weight: 700;
+  font-size: 3rem;
 }
 
 .pricesText {
-  text-align: center;
   padding-bottom: 30px
 }
 
@@ -188,13 +174,10 @@ h1 {
 
 #callToAction {
   padding: 5% 15%;
-  background-color: #ff4c68;
-  text-align: center;
   color: white;
 }
 
 .callToActionH2 {
-  font-family: "Montserrat";
   font-weight: 700;
   font-size: 3rem;
 }
@@ -202,7 +185,6 @@ h1 {
 /* footer section */
 
 #footer {
-  text-align: center;
   padding: 5%;
   font-weight: lighter;
 }

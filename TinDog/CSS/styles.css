@@ -1,4 +1,3 @@
-
 body {
   font-family: "Montserrat";
   text-align: center;
@@ -9,7 +8,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* section colors */
-
 .coloredSection {
   background-color: #ff4c68;
 }
@@ -19,7 +17,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Title section */
-
 #title {
   position: relative;
   z-index: 0;
@@ -37,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(25deg);
   position: absolute;
   z-index: 1;
-  right:30%;
+  right: 30%;
 }
 
 /* On ipad screen size change image pos */
@@ -45,8 +42,8 @@ h1, h2, h3, h4, h5, h6 {
   .iphoneDogImg {
     position: static;
     transform: rotate(0);
-
   }
+
   .imageCenter {
     text-align: center;
   }
@@ -61,20 +58,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navigation bar */
-
 .navbar {
   padding: 0 0 4.5rem;
 }
 
 .navbar-brand {
-
   font-family: "Ubuntu";
   font-size: 2.5rem;
   font-weight: bold;
-
 }
 
-.nav-item{
+.nav-item {
   padding: 0 18px;
 }
 
@@ -92,9 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 #description {
   position: relative;
   z-index: 2;
-
 }
-
 
 /* icons */
 .descriptionIcon {
@@ -103,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 1rem;
 }
 
-.descriptionIcon:hover{
+.descriptionIcon:hover {
   color: #ff4c68;
 }
 
@@ -171,7 +163,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Call to Action  */
-
 #callToAction {
   padding: 5% 15%;
   color: white;
@@ -183,12 +174,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* footer section */
-
 #footer {
   padding: 5%;
   font-weight: lighter;
 }
 
 .footer-icon {
-    margin: 3% 1% 3% 1%;
+  margin: 3% 1% 3% 1%;
 }

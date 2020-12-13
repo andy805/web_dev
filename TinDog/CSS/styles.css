@@ -30,6 +30,27 @@ h1 {
   right:30%;
 }
 
+/* On ipad screen size change image pos */
+@media (max-width: 1028px) {
+  .iphoneDogImg {
+    position: static;
+    transform: rotate(0);
+
+  }
+
+  #titleText {
+    text-align: center;
+  }
+
+  .imageCenter {
+    text-align: center;
+  }
+
+  .titleCenter {
+    text-align: center;
+  }
+}
+
 .container-fluid {
   padding: 3% 15% 7%;
 }

@@ -126,3 +126,28 @@ h1 {
   width: 15%;
   margin: 20px 20px 50;
 }
+
+#prices {
+  padding: 50px;
+}
+
+.buttonCard:hover {
+  background-color: white;
+  color: #0275d8;
+}
+
+.cardPrices {
+  margin: 2% 2%;
+}
+
+.pricesH2 {
+  font-family: "Montserrat";
+  font-weight: 900;
+  text-align: center;
+  text-size: 3rem;
+}
+
+.pricesText {
+  text-align: center;
+  padding-bottom: 30px
+}

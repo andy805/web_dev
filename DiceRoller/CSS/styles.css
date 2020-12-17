@@ -1,0 +1,41 @@
+.dark-background {
+  background-color: #393e46;
+}
+
+.text-color {
+  color: #00adb5;
+}
+
+.text-header {
+  font-family: "Lobster", cursive;
+  font-size: 10rem;
+}
+
+.text-header4 {
+
+  font-family: "Lobster", cursive;
+  font-size: 2rem;
+}
+
+.text-paragraph {
+  font-family: "Lobster", cursive;
+  font-weight: 200;
+}
+
+.center {
+  text-align: center;
+}
+
+/* players section */
+.padding-player {
+  padding-top: 10%;
+}
+
+
+
+
+
+/* footer */
+#footer {
+  padding: 7% 15%;
+}

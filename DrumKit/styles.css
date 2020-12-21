@@ -4,3 +4,49 @@
   padding-left: 5%;
   padding-right: 5%;
 }
+
+.drum {
+  color: red;
+  font-size: 3rem;
+}
+
+.w {
+  background-image: url("Images/tom1.png");
+  width: 100px;
+  height: 100px;
+}
+.a {
+  background-image: url("Images/tom2.png");
+  width: 100px;
+  height: 100px;
+}
+
+.s {
+  background-image: url("Images/tom3.png");
+  width: 100px;
+  height: 100px;
+}
+
+.d {
+  background-image: url("Images/tom4.png");
+  width: 100px;
+  height: 100px;
+}
+
+.j {
+  background-image: url("Images/snare.png");
+  width: 100px;
+  height: 100px;
+}
+
+.k {
+  background-image: url("Images/crash.png");
+  width: 100px;
+  height: 100px;
+}
+
+.l {
+  background-image: url("Images/kick.png");
+  width: 100px;
+  height: 100px;
+}

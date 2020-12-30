@@ -100,8 +100,12 @@ function addAnimation(current) {
   var activeButton = document.querySelector("." + current);
   activeButton.classList.add("pressed");
 
-
+  // removes the pressed class for animation
+  setTimeout( function () {
+    activeButton.classList.remove("pressed");
+  }, 150);
 }
+
 /* Notes - anonymous function
 
   document.querySelector("button").addEventListener("click", function () {

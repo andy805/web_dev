@@ -17,15 +17,25 @@ app.get('/', function (req, res) {
 app.post("/", function(req, res) {
   var city = req.body.city;
   var state = req.body.state;
-  https.get('https://api.openweathermap.org/data/2.5/weather?q='+
-  city+','+state+"&appid=3d8cc23c1b555b49ff6112a0fc931f03&units=imperial", function(response) {
+  var baseUrl = 'https://api.openweathermap.org/data/2.5/weather'
+  var key = '3d8cc23c1b555b49ff6112a0fc931f03';
+
+  https.get(baseUrl+'?q='+city+','+state+"&appid="+key+"&units=imperial", function(response) {
     console.log(response.statusCode);
     //test = response;
+
     response.on('data', function(data){
       weatherData = JSON.parse(data);
-      console.log(weatherData.main.temp);
+      console.log(weatherData);
       test = String(weatherData.main.temp);
-      res.send("<p>The temperature in "+city+" is: "+String(weatherData.main.temp)+"</p>");
+      var description = weatherData.weather[0].description;
+      var idIcon = weatherData.weather[0].icon;
+      var imageUrl = "https://openweathermap.org/img/wn/"+idIcon+"@2x.png";
+      var htmlIcon = "<img src=\""+imageUrl+"\" alt=\"icon for weather\">";
+      res.write("<p>The temperature in "+city+","+state+" is: "+test+" f and the weather is: "+String(description)+"</p>");
+      res.write(htmlIcon);
+      res.send();
+      // res.send("<p>The temperature in "+city+","+state+" is: "+String(weatherData.main.temp)+"°f and the weather is: "+String(description)+"</p>");
     });
   });
 })

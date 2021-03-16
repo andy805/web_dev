@@ -18,7 +18,7 @@ app.post("/", function(req, res) {
   var city = req.body.city;
   var state = req.body.state;
   var baseUrl = 'https://api.openweathermap.org/data/2.5/weather'
-  var key = '3d8cc23c1b555b49ff6112a0fc931f03';
+  var key = 'your api key';
 
   https.get(baseUrl+'?q='+city+','+state+"&appid="+key+"&units=imperial", function(response) {
     console.log(response.statusCode);

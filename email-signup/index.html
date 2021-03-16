@@ -43,20 +43,20 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
   </head>
   <body class="text-center">
 
 <main class="form-signin">
-  <form>
+  <form method="post" action="/">
     <img class="mb-4" src="images/road-icon.png" alt="" width="72" height="67">
     <h1 class="h3 mb-3 fw-normal">Please sign up for our emails</h1>
     <label for="inputFirstName" class="visually-hidden">first name</label>
-    <input type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
+    <input name="userFirstName" type="text" id="inputFirstName" class="form-control" placeholder="First name" required autofocus>
     <label for="inputLastName" class="visually-hidden">last name</label>
-    <input type="text" id="inputLastName" class="form-control" placeholder="Last name" required>
+    <input name="userLastName" type="text" id="inputLastName" class="form-control" placeholder="Last name" required>
     <label for="inputEmail" class="visually-hidden">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+    <input name="userEmail" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>

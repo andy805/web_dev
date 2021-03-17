@@ -2,6 +2,18 @@
 /* require express */
 
 const express = require('express');
+
+import mailchimp from "@mailchimp/mailchimp_marketing";
+mailchimp.setConfig({
+  apiKey: "YOUR_API_KEY",
+  server: "Your server prefix"
+});
+
+async function run() {
+  const response = await mailchimp.ping.get();
+  console.log(response);
+}
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -22,6 +34,7 @@ app.post("/", function(req, res) {
   console.log(String(firstName));
   console.log(String(lastName));
   console.log(String(email));
+  run();
 })
 
 app.listen(port, function() {

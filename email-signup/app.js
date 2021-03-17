@@ -1,9 +1,9 @@
-
+// import mailchimp from "@mailchimp/mailchimp_marketing";
 /* require express */
 
 const express = require('express');
+const mailchimp = require('@mailchimp/mailchimp_marketing');
 
-import mailchimp from "@mailchimp/mailchimp_marketing";
 mailchimp.setConfig({
   apiKey: "YOUR_API_KEY",
   server: "Your server prefix"

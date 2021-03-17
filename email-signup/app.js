@@ -1,12 +1,14 @@
 // import mailchimp from "@mailchimp/mailchimp_marketing";
 /* require express */
+// var token = config.apiKey;
+// var mailchimpServer = config.server
 
 const express = require('express');
+var config = require('./config.js');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
-
 mailchimp.setConfig({
-  apiKey: "YOUR_API_KEY",
-  server: "Your server prefix"
+  apiKey: config.myKey,
+  server: config.server
 });
 
 async function run() {

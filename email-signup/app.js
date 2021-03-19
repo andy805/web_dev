@@ -6,6 +6,8 @@
 const express = require('express');
 var config = require('./config.js');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
+console.log(config.myKey);
+console.log(config.server);
 mailchimp.setConfig({
   apiKey: config.myKey,
   server: config.server

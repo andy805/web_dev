@@ -5,7 +5,11 @@
     <title>To Do List </title>
   </head>
   <body>
-    <h1>Its a <%= dayOfWeek%> </h1>
+    <% if(dayOfWeek === 'sunday' || dayOfWeek === 'saturday') { %>
+    <h1 style="color:red;">Its a <%= dayOfWeek%> </h1>
+    <% } else {  %>
+        <h1 style="color:blue;"> Its a <%= dayOfWeek%> </h1>
+     <% } %>
 
   </body>
 </html>

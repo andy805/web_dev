@@ -46,19 +46,32 @@ app.post("/", function(req, res) {
     email: email
   }
   async function run() {
-    const response = await mailchimp.lists.addListMember(config.listID, {
-      email_address: data.email,
-      status: "subscribed",
-      merge_fields: {
-        FNAME: data.fName,
-        LNAME: data.lName
-      }
-    });
-    console.log(response);
-    console.log("user id" + response.id);
+    try {
+      const response = await mailchimp.lists.addListMember(config.listID, {
+        email_address: data.email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: data.fName,
+          LNAME: data.lName
+        }
+      });
+      console.log(response);
+      console.log("user id" + response.id);
+      console.log(response.status);
+      res.sendFile(__dirname + "/success.html");
+    }
+    catch (err) {
+      console.log(err);
+      res.sendFile(__dirname + "/failure.html");
+    }
   }
   run();
 })
+
+app.post("/failure", function (req, res) {
+  res.redirect("/");
+});
+
 app.listen(port, function() {
   console.log("server is running on port " + String(port));
 });

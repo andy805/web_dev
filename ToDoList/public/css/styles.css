@@ -1,0 +1,23 @@
+
+
+html, body {
+  background: #f9f9f9;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.neomorphism-card {
+  margin: 5%;
+  padding: 3%;
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,.15);
+  border-radius: 8px;
+  align-self: center;
+  background: #ffffff;
+}
+
+
+.list-row {
+  padding: 3%;
+}

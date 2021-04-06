@@ -89,3 +89,26 @@ input:checked+li {
   height: 50px;
   font-size: 25px;
 }
+
+
+/* start of grid */
+
+.container {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: auto;
+}
+
+.item-checkbox {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.item-toDo {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}

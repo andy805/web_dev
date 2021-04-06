@@ -22,29 +22,23 @@
 
   <div class="neomorphism-card">
 
-    <ul>
+    <div class="container">
       <!-- <li> -->
       <% for(var i = 0; i < toDo.length; i++) { %>
-      <li class="row list-row">
-
-        <div class="column">
-
+        <div class=".item-checkbox">
           <input type="checkbox">
         </div>
-
-        <div class="column">
+      <p class="item-toDo">
           <%= toDo[i] %>
-        </div>
-
-      </li>
+      </p>
       <hr>
       <%} %>
+      <!-- </li> -->
+    </div>
       <form class="" action="/" method="post">
         <input class="list-row-input" type="text" name="addToDo" placeholder="+ add to do">
         <button class="button" type="submit" name="button">+</button>
       </form>
-      <!-- </li> -->
-    </ul>
 
   </div>
 </body>

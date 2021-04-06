@@ -1,54 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List </title>
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
 
-      <!-- first example
+<head>
+  <meta charset="utf-8">
+  <title>To Do List </title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- first example
     <% if(dayOfWeek !== 'sunday' || dayOfWeek === 'saturday') { %>
     <h1 style="color:red;">Its a <%= dayOfWeek%> </h1>
     <% } else {  %>
         <h1 style="color:blue;"> Its a <%= dayOfWeek%> </h1>
      <% } %> -->
 
-      <h1> <%= dayOfWeek %> </h1>
+  <div class="neomorphism-card">
+    <h1> <%= dayOfWeek %> </h1>
+  </div>
 
-    <div class="neomorphism-card">
+  <div class="neomorphism-card">
 
-      <ul>
-        <li>
-          Look up movie times and decided a time
-        </li>
-        <li>
-          decided dinner and a movie in paso or no
-        </li>
-        <li>
-          decided time to leave atascadero
-        </li>
-        <!-- <li> -->
-          <% if(toDo.length === 0) { %>
-            <form class="" action="/" method="post">
-              <input type="text" name="addToDo" placeholder="+ add to do">
-              <button type="submit" name="button"> add to do</button>
-            </form>
-          <% } else {  %>
-            <% for(var i = 0; i < toDo.length; i++) { %>
-              <li><input type="checkbox"> <%= toDo[i] %> </li>
-              <hr>
-            <%} %>
-            <%} %>
-            <li>
-            <form class="" action="/" method="post">
-              <input type="text" name="addToDo" placeholder="+ add to do">
-              <button type="submit" name="button">+</button>
-            </form>
-          </li>
-        <!-- </li> -->
-      </ul>
+    <ul>
+      <!-- <li> -->
+      <% for(var i = 0; i < toDo.length; i++) { %>
+      <li class="row list-row">
 
-    </div>
-  </body>
+        <div class="column">
+
+          <input type="checkbox">
+        </div>
+
+        <div class="column">
+          <%= toDo[i] %>
+        </div>
+
+      </li>
+      <hr>
+      <%} %>
+      <form class="" action="/" method="post">
+        <input class="list-row-input" type="text" name="addToDo" placeholder="+ add to do">
+        <button class="button" type="submit" name="button">+</button>
+      </form>
+      <!-- </li> -->
+    </ul>
+
+  </div>
+</body>
+
 </html>

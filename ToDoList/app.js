@@ -75,6 +75,10 @@ app.post("/", function(req, res) {
 
 });
 
+app.get("/about", function(req, res) {
+  res.render('about');
+})
+
 app.listen(port, function() {
   console.log("server is up and running");
 });

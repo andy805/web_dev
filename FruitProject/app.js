@@ -4,7 +4,8 @@ const assert = require('assert'); /* import assert module */
 const url= 'mongodb://localhost:27017';
 
 const dbName = "fruitDB";
-const client = new mongoClient(url);
+const client = new mongoClient(url, { useUnifiedTopology: true });
+
 const findDocuments = function(db, callback) {
   // Get the documents collection
   const collection = db.collection('fruit');

@@ -5,7 +5,12 @@ mongoose.connect('mongodb://localhost:27017/fruitDB', {useNewUrlParser: true, us
 
 const fruitSchema = new mongoose.Schema ({
 
-  name: String,
+  /*add validator */
+  name: {
+    type: String,
+    // required: true  --> also valid way to have required
+    required: [true , "why no fruit name"]
+  },
   rating: Number,
   review: String
 
@@ -36,28 +41,53 @@ const pinapple = new Fruit ({
   rating: 100,
   review: "best fruit in the universe"
 });
+const orange = new Fruit ({
+  name: "",
+  rating: 100,
+  review: "best fruit in the universe"
+});
 
 const person = new People ({
   name: "marvin",
   age: 17
 });
 
-// save one document to the person collection
-person.save();
+orange.save();
+// save one document to the person collection. CREATE
+// person.save();
 
-// add multiple documents to the fruits collection
-Fruit.insertMany([apple, kiwi, pinapple], function(err) {
-  if(err){
+// add multiple documents to the fruits collection. CREATE MANY
+// Fruit.insertMany([apple, kiwi, pinapple], function(err) {
+//   if(err){
+//     console.log(err);
+//   }
+//   else {
+//     console.log("successfully save all the fruits to fruitsDB")
+//   }
+// });
+
+// show all record. READ
+Fruit.find(function(err, fruits) {
+  if(err) {
     console.log(err);
   }
   else {
-    console.log("successfully save all the fruits to fruitsDB")
+    // for(let i = 0; i < fruits.length; i++)
+    // {
+    //   console.log(fruits[i].name);
+    // }
+    fruits.forEach(function(fruit, index) {
+      console.log(fruit.name);
+    });
+
+    // close the connection to the database
+    mongoose.connection.close()
   }
-})
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
-  console.log(" in the once callback function");
-
 });
+
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function(){
+//   console.log(" in the once callback function");
+//
+// });

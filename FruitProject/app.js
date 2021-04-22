@@ -26,12 +26,34 @@ const apple = new Fruit ({
   review: "apples are great and very yummy"
 });
 
+const kiwi = new Fruit ({
+  name: "kiwi",
+  rating: 60,
+  review: "okay"
+});
+const pinapple = new Fruit ({
+  name: "pineapple",
+  rating: 100,
+  review: "best fruit in the universe"
+});
+
 const person = new People ({
   name: "marvin",
   age: 17
 });
 
+// save one document to the person collection
 person.save();
+
+// add multiple documents to the fruits collection
+Fruit.insertMany([apple, kiwi, pinapple], function(err) {
+  if(err){
+    console.log(err);
+  }
+  else {
+    console.log("successfully save all the fruits to fruitsDB")
+  }
+})
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

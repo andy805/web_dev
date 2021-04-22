@@ -52,7 +52,7 @@ const person = new People ({
   age: 17
 });
 
-orange.save();
+// orange.save();
 // save one document to the person collection. CREATE
 // person.save();
 
@@ -76,13 +76,36 @@ Fruit.find(function(err, fruits) {
     // {
     //   console.log(fruits[i].name);
     // }
-    fruits.forEach(function(fruit, index) {
-      console.log(fruit.name);
-    });
+    // fruits.forEach(function(fruit, index) {
+    //   console.log(fruit.name);
+    // });
 
+    console.log(fruits);
     // close the connection to the database
     mongoose.connection.close()
   }
+});
+
+
+// update a document param(filter {} , field{}, callback function). UPDATE
+Fruit.updateOne({name: "kiwi"}, {rating: 80}, function (err){
+  if(err) {
+    console.log(err);
+  }
+  else {
+    console.log("successfully updated the document");
+  }
+
+});
+// DELETE
+Fruit.deleteOne({name: "apple"}, function(err){
+  if(err) {
+    console.log(err);
+  }
+  else {
+    console.log("successfully deleted a document");
+  }
+
 });
 
 // const db = mongoose.connection;

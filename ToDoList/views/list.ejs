@@ -11,7 +11,7 @@
      <% } %> -->
 
   <div class="neomorphism-card">
-    <h1> <%= dayOfWeek %> </h1>
+    <h1 name="dayOfWeek"> <%= dayOfWeek %> </h1>
   </div>
 
   <div class="neomorphism-card">
@@ -28,11 +28,21 @@
       <%} %>
       <!-- </li> -->
     </div>
-      <form class="" action="/" method="post">
+      <form class="" action="/" method="post" name="formAddToDo">
         <input class="list-row-input" type="text" name="addToDo" placeholder="+ add to do">
-        <button class="button" type="submit" name="button">+</button>
+        <button class="button" type="submit" name="button" >+</button>
+        <input name="date" hidden="true" value="<%=dayOfWeek %>">
       </form>
 
   </div>
+  <script type="text/javascript">
+    // let test = document.createElement("h1");
+    // test.setAttribute('name', 'dayOfWeek');
+    // test.setAttribute('hidden', true);
+    // let node = document.createTextNode("<%=dayOfWeek %>");
+    // test.appendChild(node);
+    // document.querySelector("form[name='formAddToDo']").append(test);
+
+  </script>
 </body>
 <%- include("footer") -%>

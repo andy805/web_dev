@@ -18,7 +18,9 @@ const fruitSchema = new mongoose.Schema ({
 
 const peopleSchema = new mongoose.Schema ({
   name: String,
-  age: Number
+  age: Number,
+  // how to set up relationships. embedd a document onto another document
+  favoriteFruit: fruitSchema
 });
 
 const Fruit = mongoose.model("Fruit", fruitSchema);
@@ -42,9 +44,9 @@ const pinapple = new Fruit ({
   review: "best fruit in the universe"
 });
 const orange = new Fruit ({
-  name: "",
-  rating: 100,
-  review: "best fruit in the universe"
+  name: "orange",
+  rating: 85,
+  review: "good fruit"
 });
 
 const person = new People ({
@@ -67,46 +69,64 @@ const person = new People ({
 // });
 
 // show all record. READ
-Fruit.find(function(err, fruits) {
-  if(err) {
+// Fruit.find(function(err, fruits) {
+//   if(err) {
+//     console.log(err);
+//   }
+//   else {
+//     // for(let i = 0; i < fruits.length; i++)
+//     // {
+//     //   console.log(fruits[i].name);
+//     // }
+//     // fruits.forEach(function(fruit, index) {
+//     //   console.log(fruit.name);
+//     // });
+//
+//     console.log(fruits);
+//     // close the connection to the database
+//     mongoose.connection.close()
+//   }
+// });
+
+
+People.updateOne({name: "marvin"}, {favoriteFruit: pinapple}, function(err){
+  if(err){
     console.log(err);
   }
-  else {
-    // for(let i = 0; i < fruits.length; i++)
-    // {
-    //   console.log(fruits[i].name);
-    // }
-    // fruits.forEach(function(fruit, index) {
-    //   console.log(fruit.name);
-    // });
-
-    console.log(fruits);
-    // close the connection to the database
-    mongoose.connection.close()
+  else{
+    console.log("successfully added favoriteFruit to Andy");
   }
 });
 
+  People.find(function(err, persons){
+    if(err){
+      console.log(err);
+    }
+    else {
+      console.log(persons);
+    }
+  });
 
 // update a document param(filter {} , field{}, callback function). UPDATE
-Fruit.updateOne({name: "kiwi"}, {rating: 80}, function (err){
-  if(err) {
-    console.log(err);
-  }
-  else {
-    console.log("successfully updated the document");
-  }
-
-});
+// Fruit.updateOne({name: "kiwi"}, {rating: 80}, function (err){
+//   if(err) {
+//     console.log(err);
+//   }
+//   else {
+//     console.log("successfully updated the document");
+//   }
+//
+// });
 // DELETE
-Fruit.deleteOne({name: "apple"}, function(err){
-  if(err) {
-    console.log(err);
-  }
-  else {
-    console.log("successfully deleted a document");
-  }
-
-});
+// Fruit.deleteOne({name: "apple"}, function(err){
+//   if(err) {
+//     console.log(err);
+//   }
+//   else {
+//     console.log("successfully deleted a document");
+//   }
+//
+// });
 
 // const db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'connection error:'));

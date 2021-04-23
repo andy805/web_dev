@@ -43,32 +43,6 @@ app.get("/", function(req, res) {
   var dayAsNumber = new Date().getDay();
   var day = "";
   var testDay = today.toLocaleDateString("en-Us", options);
-  switch(dayAsNumber){
-    case 0:
-      day = "sunday";
-      break;
-    case 1:
-      day = "monday"
-      break;
-    case 2:
-      day = "tuesday";
-      break;
-    case 3:
-      day = "wednesday"
-      break;
-    case 4:
-      day = "thursday";
-      break;
-    case 5:
-      day = "friday"
-      break;
-    case 6:
-      day = "saturday";
-      break;
-    default:
-      day = "Error"
-  }
-
   /* mongodb logic. need to get all to do items an array of objects */
   let mostRecentDocument = {};
   ToDo.findOne({}, {}, { sort: {'timeStamp': -1}}, function(err, recent){
@@ -77,7 +51,7 @@ app.get("/", function(req, res) {
       console.log(err);
     }
     else {
-      mostRecentDocument = recent;
+      mostRecentDocument = JSON.parse(JSON.stringify(recent));
 
       console.log(recent);
       if(recent === null){
@@ -85,16 +59,19 @@ app.get("/", function(req, res) {
 
       }
       else {
-        testDay = recent.timeStamp.toLocaleDateString("en-Us", options);
+        testDay = recent.createDate;
       }
     }
 
   });
-  ToDo.find({createDate: mostRecentDocument.createDate}, function(err, recDocs){
+  console.log("first find most recent is: "+ mostRecentDocument.createDate);
+  ToDo.find({createDate: {"$gte": mostRecentDocument.createDate}}, function(err, recDocs){
     if(err) {
       console.log(err);
     }
     else{
+      console.log("second find: \n");
+      console.log(recDocs);
       if(recDocs === null){
 
       }

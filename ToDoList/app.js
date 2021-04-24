@@ -1,19 +1,36 @@
 const express = require("express");
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todo', {useNewUrlParser: true,
-                                              useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/todo', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
-  var dateOptions = {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric"
-  }
+var dateOptions = {
+  year: "numeric",
+  month: "numeric",
+  day: "numeric"
+}
 const toDoItemSchema = new mongoose.Schema({
-  item: {type: String, required: true},
-  deleteFlag: {type: Boolean, default: false},
-  createDate: {type: Date, default: new Date().toLocaleString("en-Us", dateOptions)},
-  timeStamp: {type: Date, default: Date.now},
-  listName: {type: String, required: true}
+  item: {
+    type: String,
+    required: true
+  },
+  deleteFlag: {
+    type: Boolean,
+    default: false
+  },
+  createDate: {
+    type: String,
+    default: new Date().toLocaleString("en-Us", dateOptions)
+  },
+  timeStamp: {
+    type: Date,
+    default: Date.now
+  },
+  listName: {
+    type: String,
+    required: true
+  }
 });
 
 
@@ -45,47 +62,69 @@ app.get("/", function(req, res) {
   var testDay = today.toLocaleDateString("en-Us", options);
   /* mongodb logic. need to get all to do items an array of objects */
   let mostRecentDocument = {};
-  ToDo.findOne({}, {}, { sort: {'timeStamp': -1}}, function(err, recent){
-
-    if(err){
-      console.log(err);
+  ToDo.findOne({}, {}, {
+    sort: {
+      'timeStamp': -1
     }
-    else {
+  }, function(err, recent) {
+    if (err) {
+      console.log(err);
+    } else {
       mostRecentDocument = JSON.parse(JSON.stringify(recent));
-
+      console.log("first find most recent is: " + mostRecentDocument.createDate);
       console.log(recent);
-      if(recent === null){
+      if (recent === null) {
         /* database is empty */
-
-      }
-      else {
+      } else {
         testDay = recent.createDate;
+        ToDo.find({
+          createDate: mostRecentDocument.createDate
+        }, function(err, recDocs) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log("second find: \n");
+            console.log(recDocs);
+            if (recDocs === null) {
+
+            } else {
+              console.log("in the else before loop: " + recDocs);
+              for (let i = 0; i < recDocs.length; i++) {
+                if (toDoList.length === 0) {
+                    toDoList.push(recDocs[i].item);
+
+                } else {
+
+                  if (toDoList[i] === recDocs[i].item) {
+
+                  } else {
+                    toDoList.push(recDocs[i].item);
+                    console.log("document is: " + recDocs[i].item);
+                  }
+                }
+              }
+              // recDocs.forEach(function(doc) {
+              //   console.log("document is: " + doc.item);
+              //   toDoList.push(doc.item);
+              // });
+              res.render('list', {
+                dayOfWeek: new Date(String(recDocs[0].timeStamp)).toLocaleDateString("en-Us", options),
+                toDo: toDoList
+              });
+            }
+
+          }
+        });
       }
     }
 
   });
-  console.log("first find most recent is: "+ mostRecentDocument.createDate);
-  ToDo.find({createDate: {"$gte": mostRecentDocument.createDate}}, function(err, recDocs){
-    if(err) {
-      console.log(err);
-    }
-    else{
-      console.log("second find: \n");
-      console.log(recDocs);
-      if(recDocs === null){
+  console.log("before second find. the createDAte is: " + mostRecentDocument.createDate);
 
-      }
-      else {
-          recDocs.forEach(function (doc){
-            toDoList.push(doc.item);
-          });
-      }
-
-    }
-  })
-
-  res.render('list', {dayOfWeek: testDay,
-                      toDo: toDoList});
+  // res.render('list', {
+  //   dayOfWeek: testDay,
+  //   toDo: toDoList
+  // });
   // res.sendFile(__dirname + "/index.html");
 
 });
@@ -110,9 +149,12 @@ app.post("/", function(req, res) {
 
   newToDoItem.save()
   toDoList.push(newToDoItem.item);
-  console.log("lenght"+ toDoList.length);
+  console.log("lenght" + toDoList.length);
   console.log(req.body);
-  res.render('list', {dayOfWeek: today.toLocaleDateString("en-Us", options), toDo: toDoList});
+  res.render('list', {
+    dayOfWeek: today.toLocaleDateString("en-Us", options),
+    toDo: toDoList
+  });
 
 });
 
